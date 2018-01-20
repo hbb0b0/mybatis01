@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hbb0b0.JavaBasic.AccountMapper">
+
+  <select id="getOne" resultType="hbb0b0.JavaBasic.model.Account">
+    select * from account limit 1,1
+  </select>
+  <select id="getList" resultType="hbb0b0.JavaBasic.model.Account">
+    select * from account 
+  </select>
+  
+  <insert id="insertAccount" parameterType="hbb0b0.JavaBasic.model.Account">
+  insert into account (name,money)
+  values (#{name},#{money})
+</insert>
+
+<delete id="deleteAccount"   parameterType="java.lang.String">
+  delete from account where name like '${name}%'
+</delete>
+</mapper>
